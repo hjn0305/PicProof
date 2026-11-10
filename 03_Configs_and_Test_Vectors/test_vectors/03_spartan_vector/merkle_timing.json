@@ -1,0 +1,9 @@
+{
+  "action": "prove",
+  "depth": 16,
+  "num_constraints": 4465,
+  "num_variables": 4480,
+  "prove_time_ms": 1421.6657539999999,
+  "proof_bytes": 15962,
+  "success": true
+}

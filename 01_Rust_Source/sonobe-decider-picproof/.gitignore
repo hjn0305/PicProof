@@ -1,0 +1,6 @@
+/target
+
+*.r1cs
+*.sym
+*.serialized
+*/*.serialized

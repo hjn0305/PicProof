@@ -1,0 +1,12 @@
+{
+  "digest_hex": "e88e6602f9465d1580b12b998d601bf04abf984aa60b84a11bc903413ea975d5",
+  "digest_source": "SHA256(COSE Sig_structure) == public/cose_tbs.bin",
+  "claim_sha256": "4a67c933ce886e5d9310b97dd575d7e39c5949a56d25fb58d348e8f3b4293453",
+  "signature_der_hex": "3044022074da78e965991e9f0df26badef4be77902ee1baeb4acec0916eda4e37de6835d02203da5d7473e4fe896f66010563d61b76867ee172c406a51878e94fd7947bb4ee5",
+  "r_hex": "0x74da78e965991e9f0df26badef4be77902ee1baeb4acec0916eda4e37de6835d",
+  "s_hex": "0x3da5d7473e4fe896f66010563d61b76867ee172c406a51878e94fd7947bb4ee5",
+  "signer_cert_der_sha256": "6fb5eddb353a82fa8720b1d54a4925eaa20e128b10cc4b3fa4d3e9e920c04001",
+  "signer_pubkey_pem_sha256": "9dfd0213f7784348ed1be355066a03d42bbce9267630c26b5b35a090bd069e17",
+  "same_signer_as_e5a": true,
+  "cose_tbs_sha256": "e88e6602f9465d1580b12b998d601bf04abf984aa60b84a11bc903413ea975d5"
+}

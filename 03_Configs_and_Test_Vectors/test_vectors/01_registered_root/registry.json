@@ -1,0 +1,16 @@
+{
+  "registry_id": "PicProof-E5A-test-registry-v1",
+  "profile": "PicProof-P256Fp-Poseidon-t3-v1",
+  "depth": 16,
+  "empty_leaf": "0",
+  "entries": [
+    {
+      "index": 0,
+      "leaf": "22930829363621561489875006098094095231306930544898035586499746180988422267127",
+      "leaf_hex": "0x32b263b528ba01dfcee20f1e64c7b4d2ad874aa4221d0432d30e8fa5863b20f7",
+      "source": "Sigma pk_link.json leaf_decimal (E5-A real C2PA fixture)"
+    }
+  ],
+  "total_slots": 65536,
+  "root": "46617505596442507915396185066101980603209855781697794876635019034740077410974"
+}

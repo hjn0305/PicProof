@@ -1,0 +1,130 @@
+--- a/src/ecdsa/ca_registry.rs
++++ b/src/ecdsa/ca_registry.rs
+@@ -219,7 +219,7 @@
+         issued_at_unix: now,
+         expires_at_unix: now.checked_add(REGISTRY_DEFAULT_VALIDITY_SECS)
+             .ok_or("Registry root expiry timestamp overflow")?,
+-        commitment_profile_id: super::picproof_k::PROFILE.to_string(),
++        commitment_profile_id: crate::ecdsa::picproof_k::PROFILE.to_string(),
+         leaf_hash_profile_id: "PicProof-PKI-CMPK-v1".to_string(),
+         leaf_hash_algorithm: "SHA-256-rejection-sampling-P256Fp".to_string(),
+         merkle_profile_id: merkle_profile_id.into(),
+@@ -355,7 +355,7 @@
+ 
+     pub fn sign_registry_root(&self, statement: RegistryRootStatement) -> Result<SignedRegistryRoot, String> {
+         let message = statement.canonical_bytes()?;
+-        let signature = self.signing_key.sign(&message);
++        let signature: P256Signature = self.signing_key.sign(&message);
+         Ok(SignedRegistryRoot {
+             certificate: self.certificate(),
+             statement,
+@@ -598,6 +598,23 @@
+     use super::*;
+     use p256::elliptic_curve::sec1::ToEncodedPoint;
+ 
++    // Deterministic toy hash used only by unit tests; never used by production.
++    // Materialize each rug operation as Integer to avoid adding lazy Incomplete values.
++    fn toy_merkle_hash(left: &Integer, right: &Integer) -> Integer {
++        let mut value = left.clone();
++        value *= 31;
++        let mut term = right.clone();
++        term *= 17;
++        value += term;
++        value
++    }
++
++    fn toy_merkle_hash_mod(left: &Integer, right: &Integer, modulus: &Integer) -> Integer {
++        let mut value = toy_merkle_hash(left, right);
++        value %= modulus;
++        value
++    }
++
+     fn request(challenge: &EnrollmentChallenge) -> EnrollmentRequest {
+         use p256::ecdsa::signature::Signer as P256Signer;
+         let sk = Scalar::from(7u64);
+@@ -674,7 +691,7 @@
+             signature_algorithm: REGISTRY_SIGNATURE_ALGORITHM.into(),
+             issued_at_unix: now,
+             expires_at_unix: now + REGISTRY_DEFAULT_VALIDITY_SECS,
+-            commitment_profile_id: super::picproof_k::PROFILE.to_string(),
++            commitment_profile_id: crate::ecdsa::picproof_k::PROFILE.to_string(),
+             leaf_hash_profile_id: "PicProof-PKI-CMPK-v1".into(),
+             leaf_hash_algorithm: "SHA-256-rejection-sampling-P256Fp".into(),
+             merkle_profile_id: "PicProof-P256Fp-Poseidon-t3-v1".into(),
+@@ -693,6 +710,7 @@
+         let mut challenge = EnrollmentChallenge::test_nonce([0x77; 32]);
+         let record = validate_enrollment(&request(&challenge), &mut challenge).unwrap();
+         let ca = CaAuthority::generate("picproof-test-ca");
++        let modulus = Integer::from_str_radix(P256_BASE_FIELD_DEC, 10).unwrap();
+         let built = build_signed_registry(
+             &[record],
+             4,
+@@ -700,7 +718,7 @@
+             "PicProof-P256Fp-Poseidon-t3-v1",
+             "ab".repeat(32),
+             &ca,
+-            |left, right| (left * 31 + right * 17) % Integer::from_str_radix(P256_BASE_FIELD_DEC, 10).unwrap(),
++            |left, right| toy_merkle_hash_mod(left, right, &modulus),
+         ).unwrap();
+         verify_signed_registry_root(
+             &built.signed_root,
+@@ -719,7 +737,7 @@
+         let result = build_signed_registry(
+             &[record.clone(), record], 2, "registry-duplicate", "PicProof-P256Fp-Poseidon-t3-v1",
+             "ab".repeat(32), &ca,
+-            |left, right| (left * 31 + right * 17) % &modulus,
++            |left, right| toy_merkle_hash_mod(left, right, &modulus),
+         );
+         assert!(result.is_err());
+     }
+@@ -727,13 +745,17 @@
+     #[test]
+     fn merkle_path_uses_spartan_direction_convention() {
+         let leaves = vec![Integer::from(10), Integer::from(20), Integer::from(30)];
+-        let tree = RegistryMerkleTree::build(&leaves, 2, |l, r| l * 31 + r * 17).unwrap();
++        let tree = RegistryMerkleTree::build(&leaves, 2, toy_merkle_hash).unwrap();
+         let path = tree.path(1).unwrap();
+         assert_eq!(path.directions, vec![false, true]);
+         let mut current = leaves[1].clone();
+         for (s, current_is_left) in path.siblings.iter().zip(path.directions.iter()) {
+             let sibling = Integer::from_str_radix(s, 10).unwrap();
+-            current = if *current_is_left { current * 31 + sibling * 17 } else { sibling * 31 + current * 17 };
++            current = if *current_is_left {
++                toy_merkle_hash(&current, &sibling)
++            } else {
++                toy_merkle_hash(&sibling, &current)
++            };
+         }
+         assert_eq!(current, *tree.root());
+     }
+@@ -748,7 +770,7 @@
+             signature_algorithm: REGISTRY_SIGNATURE_ALGORITHM.into(),
+             issued_at_unix: 100,
+             expires_at_unix: 200,
+-            commitment_profile_id: super::picproof_k::PROFILE.into(),
++            commitment_profile_id: crate::ecdsa::picproof_k::PROFILE.into(),
+             leaf_hash_profile_id: "PicProof-PKI-CMPK-v1".into(),
+             leaf_hash_algorithm: "SHA-256-rejection-sampling-P256Fp".into(),
+             merkle_profile_id: "PicProof-P256Fp-Poseidon-t3-v1".into(),
+@@ -770,7 +792,7 @@
+         let built = build_signed_registry(
+             &[record], 2, "registry-credential", "PicProof-P256Fp-Poseidon-t3-v1",
+             "ab".repeat(32), &ca,
+-            |left, right| (left * 31 + right * 17) % &modulus,
++            |left, right| toy_merkle_hash_mod(left, right, &modulus),
+         ).unwrap();
+         let credential = &built.enrollment_credentials[0];
+         assert_eq!(credential.depth, 2);
+--- a/src/ecdsa/registry_binding.rs
++++ b/src/ecdsa/registry_binding.rs
+@@ -65,7 +65,9 @@
+         };
+         assert!(verify_sigma_cm_pk_credential(&cm, &credential).is_ok());
+         let mut wrong_leaf = credential.clone();
+-        wrong_leaf.leaf_decimal = (leaf + 1).to_string();
++        let mut incremented_leaf = leaf.clone();
++        incremented_leaf += Integer::from(1);
++        wrong_leaf.leaf_decimal = incremented_leaf.to_string();
+         assert!(verify_sigma_cm_pk_credential(&cm, &wrong_leaf).is_err());
+         let other_cm = [cm[0], cm[1] + ProjectivePoint::GENERATOR];
+         assert!(verify_sigma_cm_pk_credential(&other_cm, &credential).is_err());

@@ -1,0 +1,4 @@
+DLEQ Same Signer Verification: PASS
+Curve: SECP256R1
+cmPK matches COSE Leaf Signer: TRUE
+Schnorr-style DLEQ Proof: VALID

@@ -1,0 +1,12 @@
+{
+  "package_version": 3,
+  "size_bytes": 18416,
+  "components": {
+    "pi_final_bytes": 472,
+    "pi_sigma_bytes": 447,
+    "pi_merkle_bytes": 15962,
+    "manifest_cbor_bytes": 128
+  },
+  "sha256": "d4a2d582ddbc076f301b5e570bc0d953288aa952f7ee9ae3483bb7c8ee093f0b",
+  "decider_vk_sha256": "5403977f24454450ef474279a9080bfcb451c8cd4c502a9a2a8c863e75795c18"
+}

@@ -1,0 +1,13 @@
+{
+  "profile": "PicProof-PKI-CMPK-v1",
+  "domain_tag_ascii": "PICPROOF-PKI-CMPK-v1",
+  "c0_sec1": "02242843e5ce1c95f73875cf97c63281ad88ed200df3f15f74c452e34ea327640e",
+  "c1_sec1": "028c470dfface390f7d3f79b01e3b3dc5f590c4de0a6eaf66e8a28114a6e09de4f",
+  "encode_cmpk_hex": "02242843e5ce1c95f73875cf97c63281ad88ed200df3f15f74c452e34ea327640e028c470dfface390f7d3f79b01e3b3dc5f590c4de0a6eaf66e8a28114a6e09de4f",
+  "encode_cmpk_bytes": 66,
+  "counter": 0,
+  "counter_encoding": "u32-big-endian",
+  "digest_hex": "32b263b528ba01dfcee20f1e64c7b4d2ad874aa4221d0432d30e8fa5863b20f7",
+  "digest_integer_endianness": "unsigned-big-endian",
+  "leaf_decimal": "22930829363621561489875006098094095231306930544898035586499746180988422267127"
+}

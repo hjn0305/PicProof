@@ -1,0 +1,78 @@
+[package]
+name = "sonobe-ivc"
+version = "0.1.0"
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+ark-grumpkin = { workspace = true }
+bincode = "1.3.3"
+serde = { workspace = true, features = ["derive"] }
+serde_json = { workspace = true }
+sha2 = "0.10"
+ark-bn254 = { workspace = true, features = ["curve"] }
+ark-groth16 = { workspace = true }
+ark-crypto-primitives = { workspace = true, features = ["constraints", "sponge", "crh"] }
+ark-ec = { workspace = true }
+ark-ff = { workspace = true, features = ["asm"] }
+ark-r1cs-std = { workspace = true }
+ark-relations = { workspace = true }
+ark-serialize = { workspace = true }
+ark-std = { workspace = true, features = ["getrandom"] }
+askama = { workspace = true, optional = true }
+num-bigint = { workspace = true, features = ["rand"] }
+sha3 = { workspace = true }
+thiserror = { workspace = true }
+
+sonobe-primitives = { workspace = true }
+sonobe-fs = { workspace = true }
+sonobe-snarks = { workspace = true }
+
+[dev-dependencies]
+sha2 = "0.10"
+ark-bn254 = { workspace = true, features = ["curve", "r1cs"] }
+ark-secp256r1 = { workspace = true, features = ["r1cs"] }
+ark-grumpkin = { workspace = true, features = ["r1cs"] }
+
+[target.'cfg(all(target_arch = "wasm32", target_os = "unknown"))'.dependencies]
+getrandom = { version = "0.2", features = ["js"] }
+
+[target.'cfg(all(target_arch = "wasm32", target_os = "unknown"))'.dev-dependencies]
+wasm-bindgen-test = { workspace = true }
+
+[features]
+default = ["ark-std/print-trace", "evm"]
+evm = [
+        "dep:askama",
+    "sonobe-primitives/evm",
+    "sonobe-snarks/evm",
+]
+parallel = [
+    "sonobe-fs/parallel",
+    "sonobe-snarks/parallel",
+]
+
+[[bin]]
+name = "jisa_unified_e2e"
+path = "src/bin/jisa_unified_e2e.rs"
+
+[[bin]]
+name = "hashfold_multiblock_bench"
+path = "src/bin/hashfold_multiblock_bench.rs"
+
+[[bin]]
+name = "bench_decider_repeat"
+path = "src/bin/bench_decider_repeat.rs"
+
+[[bin]]
+name = "fold_only"
+path = "src/bin/fold_only.rs"
+
+[[bin]]
+name = "e5b_decider"
+path = "src/bin/e5b_decider.rs"
+
+[[bin]]
+name = "e5b_decider_verify"
+path = "src/bin/e5b_decider_verify.rs"

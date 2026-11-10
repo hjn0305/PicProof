@@ -1,0 +1,14 @@
+{
+  "profile": "PicProof-P256-CmPK-K-v1",
+  "curve": "P-256",
+  "suite": "P256_XMD:SHA-256_SSWU_RO_",
+  "expand": "XMD:SHA-256",
+  "map": "SSWU",
+  "dst": "PICPROOF-P256-CMPK-K-v1",
+  "message": "PicProof commitment generator K",
+  "x_decimal": "47017973193027729375240351988462345240701012035971187641129361731386586706639",
+  "y_decimal": "112026181996455947215465513042656222973312915275591910249576387678346211656878",
+  "sec1_compressed": "0267f33ad19ab684bfb58d469d1342ad2a30ea7656237ae07b8058dca8aca032cf",
+  "sec1_uncompressed": "0467f33ad19ab684bfb58d469d1342ad2a30ea7656237ae07b8058dca8aca032cff7ac9270fe2a05b2e8893b17c05b5e36fd3f048bdb2b65f5e12239c3b1ae84ae",
+  "parameter_sha256": "03c65102522ecce14e0e3c8a5722996a6e59ee5db3dddf3f0746ceac79edbd7f"
+}

@@ -1,0 +1,6 @@
+CA Root Statement Verification: PASS
+CA Fingerprint: b452894b720b467f853f9d154ca9f5493b33e7b43d1ba46aeb07aa4bfab32841
+Registry ID: picproof-scalability-d1-n2
+Merkle Root (Decimal): 8611870796608513247855569433386390280254324068960677117892520761110725873641
+Depth: 1
+ES256 Signature Verification: VALID

@@ -1,0 +1,5 @@
+Spartan Merkle Membership Verification: PASS
+Proof Size: 15,962 bytes
+Merkle Depth: 16
+Poseidon Constraints: R1CS satisfied
+Verified Leaf in Root: TRUE

@@ -1,0 +1,5 @@
+HashFold SHA-256 Step Verification: PASS
+Input Size: 28,354 bytes (444 blocks)
+Expected SHA-256: ef29c5d15ca4adf940c28fe801e3fb8fdcd6edc7e43f25a1595bb02a0123c90b
+Folded SHA-256 State: MATCH
+IVC Step Constraints: Satisfied

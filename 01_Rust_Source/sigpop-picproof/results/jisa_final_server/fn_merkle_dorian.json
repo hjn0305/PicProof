@@ -1,0 +1,56 @@
+{
+  "scalar_field_modulus": "115792089210356248762697446949407573529996955224135760342422259061068512044369",
+  "kat": {
+    "input_0": "1",
+    "input_1": "2",
+    "output_digest": "96554622634417404021395579468204627178867538786037651607308367251377890620012",
+    "verified": true
+  },
+  "depths": [
+    {
+      "depth": 8,
+      "constraints": 1936,
+      "setup_ms": 24,
+      "prove_ms": 51,
+      "verify_ms": 2,
+      "proof_size_bytes": 10832,
+      "accept": true
+    },
+    {
+      "depth": 20,
+      "constraints": 4840,
+      "setup_ms": 60,
+      "prove_ms": 127,
+      "verify_ms": 5,
+      "proof_size_bytes": 10880,
+      "accept": true
+    },
+    {
+      "depth": 32,
+      "constraints": 7744,
+      "setup_ms": 96,
+      "prove_ms": 200,
+      "verify_ms": 8,
+      "proof_size_bytes": 10928,
+      "accept": true
+    },
+    {
+      "depth": 64,
+      "constraints": 15488,
+      "setup_ms": 192,
+      "prove_ms": 395,
+      "verify_ms": 16,
+      "proof_size_bytes": 11056,
+      "accept": true
+    },
+    {
+      "depth": 128,
+      "constraints": 30976,
+      "setup_ms": 384,
+      "prove_ms": 786,
+      "verify_ms": 32,
+      "proof_size_bytes": 11312,
+      "accept": true
+    }
+  ]
+}

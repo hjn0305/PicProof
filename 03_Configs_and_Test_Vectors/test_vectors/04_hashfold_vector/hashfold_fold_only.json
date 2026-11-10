@@ -1,0 +1,20 @@
+{
+  "binding_match": true,
+  "blocks": 444,
+  "decider_executed": false,
+  "folding_ms": 1430393,
+  "folding_steps": 444,
+  "h_hi": "ef29c5d15ca4adf940c28fe801e3fb8f",
+  "h_lo": "dcd6edc7e43f25a1595bb02a0123c90b",
+  "input_bytes": 28354,
+  "input_file": "/root/autodl-tmp/picproof-e5b/private/bound_bytes.bin",
+  "ivc_final_proof_verified": true,
+  "mean_ms_per_step": 3221.6058558558557,
+  "peak_rss_kib_after_fold": 149680,
+  "peak_rss_kib_total": 149680,
+  "setup_ms": 17435,
+  "sha256_expected": "ef29c5d15ca4adf940c28fe801e3fb8fdcd6edc7e43f25a1595bb02a0123c90b",
+  "sha256_folded": "ef29c5d15ca4adf940c28fe801e3fb8fdcd6edc7e43f25a1595bb02a0123c90b",
+  "sha256_witness": "ef29c5d15ca4adf940c28fe801e3fb8fdcd6edc7e43f25a1595bb02a0123c90b",
+  "verify_ms": 5806
+}

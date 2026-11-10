@@ -1,0 +1,54 @@
+[workspace]
+members = [
+    "crates/primitives",
+    "crates/fs",
+    "crates/ivc",
+    "crates/snarks",
+]
+resolver = "2"
+
+[workspace.package]
+edition = "2024"
+license = "MIT"
+repository = "https://github.com/privacy-scaling-explorations/sonobe/"
+rust-version = "1.85.1"
+
+[workspace.dependencies]
+askama = { version = "0.16.0" }
+hashbrown = { version = "0.17" }
+itertools = { version = "0.14.0" }
+num-bigint = { version = "0.4.3" }
+num-integer = { version = "0.1" }
+num-traits = { version = "0.2" }
+sha3 = { version = "0.10" }
+rayon = { version = "1" }
+revm = { version = "40.0.3", default-features = false }
+serde = { version = "1.0" }
+serde_json = { version = "1.0" }
+thiserror = { version = "2.0.16" }
+wasm-bindgen-test = { version = "0.3" }
+
+# Arkworks family
+ark-crypto-primitives = { version = "0.6.0", default-features = false }
+ark-ec = { version = "0.6.0", default-features = false }
+ark-ff = { version = "0.6.0", default-features = false }
+ark-groth16 = { version = "0.6.0", default-features = false }
+ark-poly = { version = "0.6.0", default-features = false }
+ark-r1cs-std = { version = "0.6.0", default-features = false }
+ark-relations = { version = "0.6.0", default-features = false }
+ark-serialize = { version = "0.6.0", default-features = false }
+ark-snark = { version = "0.6.0", default-features = false }
+ark-std = { version = "0.6.0", default-features = false }
+
+# Ark curves
+ark-bn254 = { version = "0.6.0", default-features = false }
+ark-grumpkin = { version = "0.6.0", default-features = false }
+ark-pallas = { version = "0.6.0", default-features = false }
+ark-secp256r1 = { version = "0.6.0", default-features = false }
+ark-vesta = { version = "0.6.0", default-features = false }
+
+# Local crates
+sonobe-primitives = { path = "crates/primitives", default-features = false }
+sonobe-fs = { path = "crates/fs", default-features = false }
+sonobe-ivc = { path = "crates/ivc", default-features = false }
+sonobe-snarks = { path = "crates/snarks", default-features = false }

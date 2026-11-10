@@ -1,0 +1,13 @@
+{
+  "profile_id": "picproof-jisa-v1",
+  "package_version": 4,
+  "merkle_depth": 16,
+  "rid_hashfold": "picproof-hashfold-sha256-v1",
+  "rid_sigma": "picproof-p256-committed-pk-sigma-v1",
+  "rid_merkle": "picproof-spartan-p256-poseidon-depth16-v1",
+  "trusted_root": "64698499199980403925688120801330752921757523768671178302817662098597633920419",
+  "decider_vk_sha256": "1139a053f45eaea43f35ace1b5801357c3a39c159295c765b502fe68f4666fd6",
+  "sigma_verifier_sha256": "7b95011f08e7637247a4611e631a47f2ee2c0583d3abe0b928db7d8c352a6e9d",
+  "spartan_verifier_sha256": "11729c437e23081f96cda471b502a7358366da0d32e76476808388595d89046d",
+  "merkle_profile_fingerprint": "bed63b51dc56e86a1d413cef107ef6af7ccd89666e0576792ba4edf40db62293"
+}

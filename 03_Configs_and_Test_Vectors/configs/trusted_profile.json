@@ -1,0 +1,13 @@
+{
+  "registry_id": "PicProof-E5A-test-registry-v1",
+  "profile": "PicProof-P256Fp-Poseidon-t3-v1",
+  "depth": 16,
+  "root": "46617505596442507915396185066101980603209855781697794876635019034740077410974",
+  "root_hex": "0x671092b8e15b3c3238ffb8f9f30d2bd720c3b9cc10eb61b41cfc9d290b40ba9e",
+  "leaf": "22930829363621561489875006098094095231306930544898035586499746180988422267127",
+  "leaf_index": 0,
+  "empty_leaf": "0",
+  "params_path": "/root/autodl-tmp/sigpop/p256_poseidon_t3_params.json",
+  "params_parameter_sha256": "fe39b46ac826db30c41db8bceda953a93e231ec10ca2b2e737995974f63c7d00",
+  "note": "E5-A LOCAL TEST REGISTRY ONLY. Not a production CA or real device authorization."
+}

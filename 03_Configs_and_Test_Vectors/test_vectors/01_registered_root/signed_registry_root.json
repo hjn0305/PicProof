@@ -1,0 +1,24 @@
+{
+  "certificate": {
+    "version": 1,
+    "ca_id": "PicProof-Scalability-CA",
+    "public_key_hex": "036534923d0f19bf7eac76406764ca767a7894e4f8de23fca84d55015e5069a7b3",
+    "fingerprint_sha256": "b452894b720b467f853f9d154ca9f5493b33e7b43d1ba46aeb07aa4bfab32841"
+  },
+  "statement": {
+    "version": 2,
+    "registry_id": "picproof-scalability-d1-n2",
+    "merkle_root_decimal": "8611870796608513247855569433386390280254324068960677117892520761110725873641",
+    "depth": 1,
+    "signature_algorithm": "ES256",
+    "issued_at_unix": 1793971459,
+    "expires_at_unix": 1825507459,
+    "commitment_profile_id": "PicProof-P256-CmPK-K-v1",
+    "leaf_hash_profile_id": "PicProof-PKI-CMPK-v1",
+    "leaf_hash_algorithm": "SHA-256-rejection-sampling-P256Fp",
+    "merkle_profile_id": "PicProof-P256Fp-Poseidon-t3-v1",
+    "merkle_hash_algorithm": "Poseidon",
+    "merkle_parameters_sha256": "fe39b46ac826db30c41db8bceda953a93e231ec10ca2b2e737995974f63c7d00"
+  },
+  "signature_hex": "a3cfaa1891a88d843c31853a981998869db24007d56960117086f0c33e19d3ad77e803dd8ed323a9ab400e0406d923fea676634d56a5a95cb516efce0a1619e7"
+}

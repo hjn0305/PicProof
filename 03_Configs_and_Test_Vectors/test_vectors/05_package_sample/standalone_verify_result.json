@@ -1,0 +1,23 @@
+{
+  "package_version": 3,
+  "merkle_depth": 16,
+  "sha256_blocks": 2,
+  "decider_verify_ms": 15,
+  "sigma_verify_ms": 14,
+  "merkle_verify_ms": 1260,
+  "total_verify_ms": 1289,
+  "pi_final_bytes": 472,
+  "pi_sigma_bytes": 447,
+  "pi_merkle_bytes": 15962,
+  "decider_verify": true,
+  "sigma_verify": true,
+  "pk_link_verify": true,
+  "merkle_verify": true,
+  "root_match": true,
+  "manifest_binding": true,
+  "media_checked": true,
+  "media_matches": true,
+  "media_digest_hex": "fdeab9acf3710362bd2658cdc9a29e8f9c757fcf9811603a8c447cd1d9151108",
+  "total_wallclock_ms": 1363,
+  "accept": true
+}
