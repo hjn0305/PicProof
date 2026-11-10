@@ -42,7 +42,9 @@ This repository contains the complete implementation of **PicProof** used in our
 │   ├── configs/                    # Trusted Profile, CA 证书/指纹, Poseidon 参数
 │   ├── test_vectors/               # 注册根、Sigma、Spartan、HashFold、证明包样本及预期输出
 │   └── test_scripts/               # verify_c2pa_minimal.py, run_cleanroom_smoke.sh
+├── .gitattributes
 ├── .gitignore
+├── LICENSE                         # MIT 开源协议
 ├── README.md
 └── SHA256SUMS                      # 仓库全量文件 SHA-256 校验清单
 ```
@@ -86,3 +88,12 @@ cargo build --manifest-path 01_Rust_Source/sonobe-decider-picproof/Cargo.toml --
 ## 4. 安全与数据脱敏声明 (Sanitization Notice)
 
 为遵循公开源码与安全最小暴露原则，本仓库仅包含算法源码、受信配置、参数文件及合成/公开测试样本，**不包含**任何真实设备私钥、公钥承诺开启值（opening scalar）、私有 Merkle 路径或未披露敏感生产凭证。
+
+---
+
+## 5. 开源协议 (License)
+
+* 本仓库由 PicProof 作者贡献的全部新增代码、原生 C2PA 解析与验证实现、配置及测试向量均遵循 **[MIT License](LICENSE)** 开源协议发布。
+* 上游基础框架保留其原有开源协议与版权声明：
+  * `01_Rust_Source/sigpop-picproof`（基于 `circ` / `Sig-PoP`）：采用 Apache-2.0 / MIT 双重许可（详见目录内 `COPYING`、`LICENSE-MIT`、`LICENSE-APACHE`）。
+  * `01_Rust_Source/sonobe-decider-picproof`（基于 `sonobe`）：采用 MIT License（详见目录内 `LICENSE`）。
